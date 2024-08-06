@@ -38,10 +38,11 @@ public class PoliceEventsApp extends JFrame {
                 String name = event.getString("name");
                 String urlFromApi = event.getString("url");
                 String type = event.getString("type");
+                String summary = event.getString("summary");
                 JSONObject jsonObject = event.getJSONObject("location");
                 String cityName = jsonObject.get("name").toString();
                 String gpsCoordinates = jsonObject.get("gps").toString();
-                eventsModel.addElement(parseDateTimeString(dateTime) + ": " + name + ": " + type + ": " + "Url: " + BASE_URL + urlFromApi + ": " + "City: " + cityName + ": " + "GPS: " + gpsCoordinates);
+                eventsModel.addElement(parseDateTimeString(dateTime) + ": " + name +  ": " + "Info: "+ summary +": " + type + " : " + "Url: " + BASE_URL + urlFromApi + " : " + "City: " + cityName + " : " + "GPS: " + gpsCoordinates);
             }
         } catch (Exception e) {
             e.printStackTrace();
